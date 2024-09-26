@@ -1,5 +1,7 @@
 const workflowTemplates = {
-  octoOrgCI: `name: Octo Organization CI
+  octoOrgCI: {
+    name: 'Octo Organization CI',
+    file: `name: Octo Organization CI
 
 on:
   push:
@@ -17,6 +19,7 @@ jobs:
       - name: Run a one-line script
         run: echo Hello from Octo Organization
 `,
+  },
 };
 
 export default workflowTemplates;

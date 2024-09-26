@@ -16,7 +16,7 @@ export default function Home() {
           Click below to deploy the following YAML file:
         </h2>
         <SyntaxHighlighter language='yaml' style={okaidia}>
-          {workflowTemplates.octoOrgCI}
+          {workflowTemplates.octoOrgCI.file}
         </SyntaxHighlighter>
 
         <div className='flex justify-center gap-4  sm:flex-row'>
