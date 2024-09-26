@@ -19,6 +19,7 @@ jobs:
       - name: Run a one-line script
         run: echo Hello from Octo Organization
 `,
+    environmentVars: ['defaultBranch'],
   },
 };
 
