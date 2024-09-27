@@ -12,10 +12,12 @@ export default function Error({
 }) {
   useEffect(() => {
     console.error(error);
-  }, [error]);
+    const refreshInterval = setInterval(() => reset(), 1000);
+    return () => clearInterval(refreshInterval);
+  }, [error, reset]);
 
   return (
-    <div>
+    <main className=''>
       <h2>Something went wrong!</h2>
       <Button
         onClick={
@@ -25,6 +27,6 @@ export default function Error({
       >
         Try again
       </Button>
-    </div>
+    </main>
   );
 }
