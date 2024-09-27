@@ -3,15 +3,22 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Header from '../header';
-// import ConfettiExplosion from 'react-confetti-explosion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import Confetti from 'react-confetti';
 
 export default function ConfigureDeployWorkflowSuccess() {
   const [workflowName, setWorkflowName] = useState('loading...');
   const [deployedFile, setDeployedFile] = useState('loading...');
+  const [celebrate, setCelebrate] = useState(false);
+  const celebrationDuration = 10000;
+
   useEffect(() => {
+    toast.success('Your workflow is deployed!');
+    setCelebrate(true);
+    setTimeout(() => setCelebrate(false), celebrationDuration);
     setWorkflowName(
       sessionStorage.getItem('workflowName') || 'Oops! Something went wrong'
     );
@@ -20,26 +27,24 @@ export default function ConfigureDeployWorkflowSuccess() {
     );
   }, []);
 
-  // const [celebrate, setCelebrate] = useState(false);
-  // setTimeout(() => setCelebrate(true), 2000);
   return (
     <div className='flex flex-col min-h-screen bg-[#000000]'>
-      {/* {celebrate && (
-        <ConfettiExplosion
-          force={0.8}
-          duration={3000}
-          particleCount={250}
-          width={1600}
-          // onComplete={() => setCelebrate(false)}
+      {celebrate && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          numberOfPieces={window.innerWidth / 2}
+          gravity={0.07}
+          recycle={false}
         />
-      )} */}
+      )}
       <Header />
       <main className='flex-1 flex flex-col items-center justify-center p-4 md:p-6'>
         <h1 className='text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl mb-6'>
           Success!
         </h1>
         <p className='mx-auto max-w-[600px] text-gray-400 md:text-xl/relaxed'>
-          {workflowName} is now live.
+          {workflowName} is now live
         </p>
         <SyntaxHighlighter
           language='yaml'
@@ -62,6 +67,7 @@ export default function ConfigureDeployWorkflowSuccess() {
           />
           Deploy another workflow{' '}
         </Link>
+        <Toaster />
       </main>
     </div>
   );
