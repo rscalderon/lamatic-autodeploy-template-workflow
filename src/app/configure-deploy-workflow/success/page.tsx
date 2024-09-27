@@ -65,7 +65,7 @@ export default function ConfigureDeployWorkflowSuccess() {
             width={20}
             height={20}
           />
-          Deploy another workflow{' '}
+          Deploy another workflow
         </Link>
         <Toaster />
       </main>
