@@ -9,6 +9,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function ConfigureDeployWorkflowSuccess() {
+  const workflowName = sessionStorage
+    ? sessionStorage.getItem('workflowName')
+    : 'Oops! Something went wrong';
+  let deployedFile = '';
+  if (sessionStorage && sessionStorage.getItem('deployedFile')) {
+    deployedFile = sessionStorage.getItem('deployedFile')!;
+  } else {
+    deployedFile = 'Oops! Something went wrong';
+  }
+
   // const [celebrate, setCelebrate] = useState(false);
   // setTimeout(() => setCelebrate(true), 2000);
   return (
@@ -28,9 +38,7 @@ export default function ConfigureDeployWorkflowSuccess() {
           Success!
         </h1>
         <p className='mx-auto max-w-[600px] text-gray-400 md:text-xl/relaxed'>
-          {(sessionStorage && sessionStorage.getItem('workflowName')) ||
-            'Oops! Something went wrong'}{' '}
-          is now live.
+          {workflowName} is now live.
         </p>
         <SyntaxHighlighter
           language='yaml'
@@ -38,8 +46,7 @@ export default function ConfigureDeployWorkflowSuccess() {
           wrapLongLines={true}
           className='mx-auto max-w-[70vw] text-gray-400 md:text-xl/relaxed'
         >
-          {(sessionStorage && sessionStorage.getItem('deployedFile')) ||
-            'Oops! Something went wrong'}
+          {deployedFile}
         </SyntaxHighlighter>
         <Link
           href='/'
