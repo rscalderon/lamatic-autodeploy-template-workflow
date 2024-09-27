@@ -11,22 +11,7 @@ export function fillTemplateAndReturn(
   variables: variablesCollection,
   file: string
 ) {
-  let newFile = '';
-
-  for (let i = 0; i < file.length; i++) {
-    if (file[i] === '*') {
-      i++;
-      let newVar = '';
-      while (file[i] !== '*') {
-        newVar += file[i++];
-      }
-      newVar = variables[newVar] || newVar;
-      newFile += newVar;
-    } else {
-      newFile += file[i];
-    }
-  }
-  return newFile;
+  return file.replace(/\*([^*]+)\*/g, (match, p1) => variables[p1] || p1);
 }
 
 export const randomNameGenerator = () => {
