@@ -7,17 +7,17 @@ import Header from '../header';
 // import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 export default function ConfigureDeployWorkflowSuccess() {
-  const workflowName = sessionStorage
-    ? sessionStorage.getItem('workflowName')
-    : 'Oops! Something went wrong';
+  let workflowName = '';
   let deployedFile = '';
-  if (sessionStorage && sessionStorage.getItem('deployedFile')) {
-    deployedFile = sessionStorage.getItem('deployedFile')!;
-  } else {
-    deployedFile = 'Oops! Something went wrong';
-  }
+  useEffect(() => {
+    workflowName =
+      sessionStorage.getItem('workflowName') || 'Oops! Something went wrong';
+    deployedFile =
+      sessionStorage.getItem('deployedFile') || 'Oops! Something went wrong';
+  });
 
   // const [celebrate, setCelebrate] = useState(false);
   // setTimeout(() => setCelebrate(true), 2000);
