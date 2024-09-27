@@ -1,4 +1,4 @@
-const adjectives = [
+export const adjectives = [
   'able',
   'above',
   'absent',
@@ -1203,7 +1203,7 @@ const adjectives = [
   'zygotic',
 ];
 
-const animals = [
+export const animals = [
   'aardvark',
   'aardwolf',
   'albatross',
@@ -1560,15 +1560,3 @@ const animals = [
   'yak',
   'zebra',
 ];
-
-export const randomNameGenerator = () => {
-  const randomOne = adjectives[Math.round(Math.random() * adjectives.length)];
-  const randomTwo = animals[Math.round(Math.random() * animals.length)];
-  let output = randomOne + '-' + randomTwo;
-  if (randomTwo === randomOne) {
-    const randomThree = animals[Math.round(Math.random() * animals.length)];
-    output = randomOne + '-' + randomThree;
-  }
-
-  return output;
-};
