@@ -28,7 +28,7 @@ export default function ConfigureDeployWorkflowSuccess() {
           Success!
         </h1>
         <p className='mx-auto max-w-[600px] text-gray-400 md:text-xl/relaxed'>
-          {sessionStorage.getItem('workflowName') ||
+          {(sessionStorage && sessionStorage.getItem('workflowName')) ||
             'Oops! Something went wrong'}{' '}
           is now live.
         </p>
@@ -38,7 +38,7 @@ export default function ConfigureDeployWorkflowSuccess() {
           wrapLongLines={true}
           className='mx-auto max-w-[70vw] text-gray-400 md:text-xl/relaxed'
         >
-          {sessionStorage.getItem('deployedFile') ||
+          {(sessionStorage && sessionStorage.getItem('deployedFile')) ||
             'Oops! Something went wrong'}
         </SyntaxHighlighter>
         <Link
