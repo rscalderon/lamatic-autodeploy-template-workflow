@@ -53,6 +53,10 @@ export default function ConfigureWorkflowForm({
       toast.error('Some environment variables are missing');
       return;
     }
+    if (!workflowName) {
+      toast.error('Your new workflow needs a name');
+      return;
+    }
     sessionStorage.setItem('workflowName', workflowName);
     sessionStorage.setItem(
       'deployedFile',
