@@ -32,7 +32,7 @@ export default function ConfigureDeployWorkflowSuccess() {
       {celebrate && (
         <Confetti
           width={window.innerWidth}
-          height={window.innerHeight}
+          height={window.innerHeight * 2}
           numberOfPieces={window.innerWidth / 2}
           gravity={0.07}
           recycle={false}
