@@ -12,9 +12,7 @@ export default function Error({
 }) {
   useEffect(() => {
     console.error(error);
-    const refreshInterval = setInterval(() => reset(), 1000);
-    return () => clearInterval(refreshInterval);
-  }, [error, reset]);
+  }, [error]);
 
   return (
     <main className=''>
