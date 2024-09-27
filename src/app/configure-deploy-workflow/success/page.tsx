@@ -7,16 +7,18 @@ import Header from '../header';
 // import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ConfigureDeployWorkflowSuccess() {
-  let workflowName = '';
-  let deployedFile = '';
+  const [workflowName, setWorkflowName] = useState('loading...');
+  const [deployedFile, setDeployedFile] = useState('loading...');
   useEffect(() => {
-    workflowName =
-      sessionStorage.getItem('workflowName') || 'Oops! Something went wrong';
-    deployedFile =
-      sessionStorage.getItem('deployedFile') || 'Oops! Something went wrong';
+    setWorkflowName(
+      sessionStorage.getItem('workflowName') || 'Oops! Something went wrong'
+    );
+    setDeployedFile(
+      sessionStorage.getItem('deployedFile') || 'Oops! Something went wrong'
+    );
   });
 
   // const [celebrate, setCelebrate] = useState(false);
