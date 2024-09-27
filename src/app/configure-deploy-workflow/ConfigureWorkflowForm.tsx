@@ -42,6 +42,12 @@ export default function ConfigureWorkflowForm({
     <Input
       className='bg-gray-900 border-gray-800 text-white'
       id='git-repository'
+      type='text'
+      required
+      minLength={1}
+      maxLength={200}
+      // Potential pattern matching implementation
+      // pattern='[A-Za-z0-9\-]'
       key={environmentVar}
       placeholder={environmentVar}
       value={variables[environmentVar]}
@@ -78,6 +84,11 @@ export default function ConfigureWorkflowForm({
         <Input
           className='bg-gray-900 border-gray-800 text-white'
           id='project-name'
+          type='text'
+          required
+          minLength={5}
+          maxLength={50}
+          pattern='[A-Za-z0-9\-]'
           value={workflowName}
           placeholder='Name your workflow'
           onChange={(e) => setWorkflowName(e.target.value)}
