@@ -4,7 +4,6 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Header from '../header';
 // import ConfettiExplosion from 'react-confetti-explosion';
-// import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -19,7 +18,7 @@ export default function ConfigureDeployWorkflowSuccess() {
     setDeployedFile(
       sessionStorage.getItem('deployedFile') || 'Oops! Something went wrong'
     );
-  });
+  }, []);
 
   // const [celebrate, setCelebrate] = useState(false);
   // setTimeout(() => setCelebrate(true), 2000);
