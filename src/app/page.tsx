@@ -1,9 +1,9 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from './footer';
 import workflowTemplates from '@/lib/workflow-templates';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function Home() {
   return (
@@ -12,11 +12,20 @@ export default function Home() {
         <h1 className='text-white text-3xl mb-10 font-semibold'>
           Lamatic workflow template
         </h1>
-        <h2 className='text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]'>
-          Click below to deploy the following YAML file:
+        <h2 className='text-m text-center sm:text-left font-[family-name:var(--font-geist-mono)]'>
+          Click below to deploy{' '}
+          <span className='font-extrabold'>
+            {workflowTemplates.slackConfluenceVectorSearch.name}
+          </span>
+          :
         </h2>
-        <SyntaxHighlighter language='yaml' style={okaidia}>
-          {workflowTemplates.octoOrgCI.file}
+        <SyntaxHighlighter
+          language='yaml'
+          wrapLongLines={true}
+          style={nightOwl}
+          className='mx-auto max-w-[70vw] place-self-center text-gray-400 md:text-xl/relaxed'
+        >
+          {workflowTemplates.slackConfluenceVectorSearch.file}
         </SyntaxHighlighter>
 
         <div className='flex justify-center gap-4  sm:flex-row'>
