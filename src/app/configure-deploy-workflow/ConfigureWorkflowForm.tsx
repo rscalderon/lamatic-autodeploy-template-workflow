@@ -49,12 +49,13 @@ export default function ConfigureWorkflowForm({
     />
   ));
   const handleDeployClick = () => {
-    if (Object.values(variables).includes('')) {
-      toast.error('Some environment variables are missing');
+    if (!workflowName) {
+      toast.error('Your new workflow needs a name!');
+      setWorkflowName(randomName);
       return;
     }
-    if (!workflowName) {
-      toast.error('Your new workflow needs a name');
+    if (Object.values(variables).includes('')) {
+      toast.error('Some environment variables are missing');
       return;
     }
     sessionStorage.setItem('workflowName', workflowName);
