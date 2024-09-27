@@ -91,11 +91,6 @@ export default function ConfigureWorkflowForm({
           <option value='my-other-team'>My Other Team</option>
           <option value='my-organization'>My Organization</option>
         </select>
-        {/* <Input
-          className='bg-gray-900 border-gray-800 text-white'
-          id='git-repository'
-          placeholder='Enter your Git repository URL'
-        /> */}
       </div>
       <div className='space-y-2'>
         <Label className='text-white' htmlFor='git-repository'>
@@ -109,16 +104,6 @@ export default function ConfigureWorkflowForm({
       >
         Deploy
       </Button>
-      {/* <div className='space-y-2'> */}
-      {/* <p className='text-sm font-medium text-white'>Demo URL</p> */}
-      {/* <Link
-                className='inline-flex items-center text-sm text-blue-500 hover:underline'
-                href='https://nextjs-template.vercel.app/'
-              >
-                https://nextjs-template.vercel.app/
-                <ArrowRight className='ml-1 h-3 w-3' />
-              </Link> */}
-      {/* </div> */}
       <Toaster />
     </div>
   );
