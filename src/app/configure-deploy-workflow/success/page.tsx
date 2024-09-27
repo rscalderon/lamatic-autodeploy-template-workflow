@@ -3,7 +3,6 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Header from '../header';
-import workflowTemplates from '@/lib/workflow-templates';
 // import ConfettiExplosion from 'react-confetti-explosion';
 // import { useState } from 'react';
 import Link from 'next/link';
